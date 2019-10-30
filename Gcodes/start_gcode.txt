@@ -1,0 +1,14 @@
+M104 S{material_print_temperature} ; set extruder temp
+M140 S{material_bed_temperature} ; set bed temp
+M190 S{material_bed_temperature} ; wait for bed temp
+M109 S{material_print_temperature} ; wait for extruder temp
+
+G28 ; Home all axis
+G29 ; Auto level
+G1 Z15.0 F6000 ; Move up 15mm at 6000mm/min (note: more than the max speed set in the printer firmware)
+G92 E0 ; Reset extruder length to zero
+G1 X0.0 Y5.0 F2000.0 ; go to edge of print area
+G1 Z0.200 F1000.0 ; Go to Start Z position
+G1 X60.0 E9.0 F1000.0 ; intro line
+G1 X100.0 E21.5 F1000.0 ; intro line
+G92 E0.0 ; reset extruder distance position
